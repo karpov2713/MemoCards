@@ -100,3 +100,6 @@ class ViewController: UIViewController {
     }
 }
 
+class CardLayer {
+    // Здесь будет новый класс, который отвечает за внешний вид карточки
+}
