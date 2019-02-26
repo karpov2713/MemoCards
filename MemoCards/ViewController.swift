@@ -95,6 +95,7 @@ class ViewController: UIViewController {
         }
 
         return selectedPicture
+        // Возвращает картинку выбранной карточки
     }
 }
 
