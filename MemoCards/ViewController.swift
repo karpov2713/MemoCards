@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         MemoCard(keyNumber: "14", keyWord: "ЖуЧок", keyLetters: "ГЖ ЧЩ", fileName: "14 ГЖ ЧЩ ЖуЧок"),
         MemoCard(keyNumber: "15", keyWord: "ГуБы", keyLetters: "ГЖ БП", fileName: "15 ГЖ БП ГуБы"),
         MemoCard(keyNumber: "16", keyWord: "ГуаШь", keyLetters: "ГЖ ШЛ", fileName: "16 ГЖ ШЛ ГуаШь"),
-        MemoCard(keyNumber: "17", keyWord: "ГуСь", keyLetters: "ГЛ СЗ", fileName: "17 ГЖ СЗ ГуСь"),
+        MemoCard(keyNumber: "17", keyWord: "ГуСь", keyLetters: "ГЖ СЗ", fileName: "17 ГЖ СЗ ГуСь"),
         MemoCard(keyNumber: "18", keyWord: "ГВоздь", keyLetters: "ГЖ ВФ", fileName: "18 ГЖ ВФ ГВоздь"),
         MemoCard(keyNumber: "19", keyWord: "ГиРя", keyLetters: "ГЖ РЦ", fileName: "19 ГЖ РЦ ГиРя"),
         MemoCard(keyNumber: "20", keyWord: "ДоМ", keyLetters: "ДТ НМ", fileName: "20 ДТ НМ ДоМ"),
