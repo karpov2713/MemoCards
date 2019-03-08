@@ -34,6 +34,7 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDv-tc-b7n">
                                 <rect key="frame" x="16" y="20" width="343" height="382"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="382" id="f5s-eN-q26"/>
                                     <constraint firstAttribute="width" constant="343" id="z3T-e5-uqS"/>
@@ -64,14 +65,14 @@
                                     <action selector="helpOnButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Noo-uT-l1C"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-Ac-DdW">
-                                <rect key="frame" x="16" y="20" width="343" height="412"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-Ac-DdW">
+                                <rect key="frame" x="16" y="20" width="343" height="382"/>
+                                <color key="backgroundColor" white="1" alpha="0.75342465753424659" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="412" id="TbW-G7-iU5"/>
+                                    <constraint firstAttribute="height" constant="382" id="TbW-G7-iU5"/>
                                     <constraint firstAttribute="width" constant="343" id="Z0O-gA-eoI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="250"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
