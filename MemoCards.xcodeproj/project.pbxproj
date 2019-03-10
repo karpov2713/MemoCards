@@ -13,7 +13,7 @@
 		7003D8242214904500713A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7003D8232214904500713A82 /* Assets.xcassets */; };
 		7003D8272214904500713A82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7003D8252214904500713A82 /* LaunchScreen.storyboard */; };
 		700872B92232ED1B00AA6D83 /* MemoCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700872B82232ED1B00AA6D83 /* MemoCardsViewModel.swift */; };
-		70F65A42222AFF96007CA3C0 /* MemoCardModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F65A41222AFF96007CA3C0 /* MemoCardModule.swift */; };
+		70F65A42222AFF96007CA3C0 /* MemoCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F65A41222AFF96007CA3C0 /* MemoCardModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +24,8 @@
 		7003D8232214904500713A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7003D8262214904500713A82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7003D8282214904500713A82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		700872B82232ED1B00AA6D83 /* MemoCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCardsViewModel.swift; sourceTree = SOURCE_ROOT; };
-		70F65A41222AFF96007CA3C0 /* MemoCardModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCardModule.swift; sourceTree = SOURCE_ROOT; };
+		700872B82232ED1B00AA6D83 /* MemoCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoCardsViewModel.swift; path = MemoCards/MainScreen/MemoCardsViewModel.swift; sourceTree = SOURCE_ROOT; };
+		70F65A41222AFF96007CA3C0 /* MemoCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoCardModel.swift; path = MemoCards/MainScreen/MemoCardModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +58,24 @@
 		7003D81B2214904400713A82 /* MemoCards */ = {
 			isa = PBXGroup;
 			children = (
+				70746A0E22358C3E000EA1DA /* MainScreen */,
 				7003D81C2214904400713A82 /* AppDelegate.swift */,
-				7003D81E2214904400713A82 /* ViewController.swift */,
-				70F65A41222AFF96007CA3C0 /* MemoCardModule.swift */,
 				7003D8202214904400713A82 /* Main.storyboard */,
 				7003D8232214904500713A82 /* Assets.xcassets */,
 				7003D8252214904500713A82 /* LaunchScreen.storyboard */,
 				7003D8282214904500713A82 /* Info.plist */,
-				700872B82232ED1B00AA6D83 /* MemoCardsViewModel.swift */,
 			);
 			path = MemoCards;
+			sourceTree = "<group>";
+		};
+		70746A0E22358C3E000EA1DA /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				70F65A41222AFF96007CA3C0 /* MemoCardModel.swift */,
+				700872B82232ED1B00AA6D83 /* MemoCardsViewModel.swift */,
+				7003D81E2214904400713A82 /* ViewController.swift */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70F65A42222AFF96007CA3C0 /* MemoCardModule.swift in Sources */,
+				70F65A42222AFF96007CA3C0 /* MemoCardModel.swift in Sources */,
 				7003D81F2214904400713A82 /* ViewController.swift in Sources */,
 				700872B92232ED1B00AA6D83 /* MemoCardsViewModel.swift in Sources */,
 				7003D81D2214904400713A82 /* AppDelegate.swift in Sources */,

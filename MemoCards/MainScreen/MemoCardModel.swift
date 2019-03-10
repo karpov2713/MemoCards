@@ -1,5 +1,5 @@
 //
-//  MemoCardModule.swift
+//  MemoCardModel.swift
 //  MemoCards
 //
 //  Created by Дмитрий Карпов on 02/03/2019.
