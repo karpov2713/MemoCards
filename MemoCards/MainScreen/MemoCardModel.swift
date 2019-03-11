@@ -22,14 +22,16 @@ class MemoCard {
     }
 }
 
-//struct parameterList {
-//    var direcrion: Directions
-//    var firstNumber: Int
-//    var finishNuber: Int
-//}
-//
-//enum Directions {
-//    case forvard
-//    case backvard
-//    case random
-//}
+enum Directions: String {
+    case forward = "Forward"
+    case backward = "Back"
+    case random = "Random"
+}
+
+struct parameterList {
+    var direction: Directions
+    var firstNumber: Int
+    var finishNuber: Int
+}
+
+

@@ -112,4 +112,8 @@ class MemoCardsViewModel: MemoCardsProtocol {
         //
         // Возвращает картинку выбранной карточки
     }
+
 }
+
+//Структура основной игры: направление, первый и последний номер карточки. Надо сделать параметры расчетными
+let mainGame = parameterList(direction: Directions.forward, firstNumber: 0,  finishNuber: 62)
