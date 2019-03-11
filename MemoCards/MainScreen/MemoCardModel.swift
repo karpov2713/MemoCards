@@ -21,3 +21,15 @@ class MemoCard {
         self.fileName = fileName
     }
 }
+
+//struct parameterList {
+//    var direcrion: Directions
+//    var firstNumber: Int
+//    var finishNuber: Int
+//}
+//
+//enum Directions {
+//    case forvard
+//    case backvard
+//    case random
+//}
