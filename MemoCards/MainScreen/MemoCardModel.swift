@@ -28,10 +28,10 @@ enum Directions: String {
     case random = "Random"
 }
 
-struct parameterList {
+struct ParameterList {
     var direction: Directions
     var firstNumber: Int
-    var finishNuber: Int
+    var finishNumber: Int
 }
 
 

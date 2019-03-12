@@ -29,13 +29,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let currentParameterList: ParameterList = viewModel.getParameters()
+        ditectionButton.setTitle(currentParameterList.direction.rawValue, for: .normal)
+        firstNumbeTextField.text = "\(currentParameterList.firstNumber)"
+        endNumbeTextField.text = "\(currentParameterList.finishNumber)"
         // Do any additional setup after loading the view, typically from a nib.
-
     }
 
     @IBAction func nextButtonAction(_ sender: UIButton) {
-        let imageView = viewModel.selectImage(imageName: textLabel.text ?? "")
-        textLabel.text = viewModel.selectedImage.keyLetters
+
+        let imageView = viewModel.selectImage()
+        textLabel.text = ""
         imageMain.image = UIImage(named: imageView)
         keyNumberLabel.isHidden = true
 
@@ -50,9 +54,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func helpCodeButton(_ sender: UIButton) {
+        textLabel.text = viewModel.selectedImage.keyLetters
+
     }
 
     @IBAction func directionChangeButton(_ sender: UIButton) {
+
     }
 
     @IBAction func resetButton(_ sender: UIButton) {

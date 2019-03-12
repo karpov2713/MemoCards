@@ -10,7 +10,8 @@ import Foundation
 
 protocol MemoCardsProtocol {
     var selectedImage: MemoCard { get set }
-    func selectImage(imageName: String) -> String
+    func selectImage() -> String
+    func getParameters() -> ParameterList
 }
 
 
@@ -18,6 +19,9 @@ class MemoCardsViewModel: MemoCardsProtocol {
 
     private var privateSelectedImage: MemoCard =
         MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок")
+
+    //Структура основной игры: направление, первый и последний номер карточки. Надо сделать параметры расчетными
+    let mainGame: ParameterList!
 
     var selectedImage: MemoCard {
         get {
@@ -95,7 +99,18 @@ class MemoCardsViewModel: MemoCardsProtocol {
         MemoCard(keyNumber: "61", keyWord: "ЛыЖи", keyLetters: "ШЛ ГЖ", fileName: "61 ШЛ ГЖ ЛыЖи"),
         MemoCard(keyNumber: "62", keyWord: "ЛаДья", keyLetters: "ШЛ ДТ", fileName: "62 ШЛ ДТ ЛаДья")]
 
-    func selectImage(imageName: String) -> String {
+    init() {
+
+        mainGame = ParameterList(direction: Directions.forward, firstNumber: 0, finishNumber: memoCards.count - 1)
+    }
+
+    func getParameters() -> ParameterList {
+        return mainGame
+    }
+
+    func selectImage() -> String {
+
+        let imageName: String = selectedImage.fileName
 
         self.selectedImage = self.memoCards.randomElement() ?? MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок")
 
@@ -107,13 +122,11 @@ class MemoCardsViewModel: MemoCardsProtocol {
             selectedPicture = self.selectedImage.fileName
 
         }
-
         return selectedPicture
         //
         // Возвращает картинку выбранной карточки
     }
 
+
 }
 
-//Структура основной игры: направление, первый и последний номер карточки. Надо сделать параметры расчетными
-let mainGame = parameterList(direction: Directions.forward, firstNumber: 0,  finishNuber: 62)
