@@ -20,7 +20,7 @@ class MemoCardsViewModel: MemoCardsProtocol {
     private var privateSelectedImage: MemoCard =
         MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок")
 
-    //Структура основной игры: направление, первый и последний номер карточки. Надо сделать параметры расчетными
+    //Структура основной игры: направление, первый и последний номер карточки.
     let mainGame: ParameterList!
 
     var selectedImage: MemoCard {
@@ -82,17 +82,17 @@ class MemoCardsViewModel: MemoCardsProtocol {
         MemoCard(keyNumber: "44", keyWord: "ЧуЧело", keyLetters: "ЧЩ ЧЩ", fileName: "44 ЧЩ ЧЩ ЧуЧело"),
         MemoCard(keyNumber: "45", keyWord: "ЧиП", keyLetters: "ЧЩ БП", fileName: "45 ЧЩ БП ЧиП"),
         MemoCard(keyNumber: "46", keyWord: "ЧаШка", keyLetters: "ЧЩ ШЛ", fileName: "46 ЧЩ ШЛ ЧаШка"),
-        MemoCard(keyNumber: "47", keyWord: "ЧаСы", keyLetters: "ЧЩ СЗ", fileName: "47 ЧЩ ЗС ЧаСы"),
+        MemoCard(keyNumber: "47", keyWord: "ЧаСы", keyLetters: "ЧЩ СЗ", fileName: "47 ЧЩ СЗ ЧаСы"),
         MemoCard(keyNumber: "48", keyWord: "ЩаВель", keyLetters: "ЧЩ ВФ", fileName: "48 ЧЩ ВФ ЩаВель"),
         MemoCard(keyNumber: "49", keyWord: "ЧеРеп", keyLetters: "ЧЩ РЦ", fileName: "49 ЧЩ РЦ ЧеРеп"),
-        MemoCard(keyNumber: "50", keyWord: "БаяН", keyLetters: "БП НМ", fileName: "50 БП ГЖ БаяН"),
+        MemoCard(keyNumber: "50", keyWord: "БаяН", keyLetters: "БП НМ", fileName: "50 БП НМ БаяН"),
         MemoCard(keyNumber: "51", keyWord: "ПоГоны", keyLetters: "БП ГЖ", fileName: "51 БП ГЖ ПоГоны"),
         MemoCard(keyNumber: "52", keyWord: "БиТа", keyLetters: "БП ДТ", fileName: "52 БП ДТ БиТа"),
         MemoCard(keyNumber: "53", keyWord: "ПауК", keyLetters: "БП КХ", fileName: "53 БП КХ ПауК"),
         MemoCard(keyNumber: "54", keyWord: "ПеЧь", keyLetters: "БП ЧЩ", fileName: "54 БП ЧЩ ПеЧь"),
         MemoCard(keyNumber: "55", keyWord: "ПюПитр", keyLetters: "БП БП", fileName: "55 БП БП ПюПитр"),
         MemoCard(keyNumber: "56", keyWord: "ПиЛа", keyLetters: "БП ШЛ", fileName: "56 БП ШЛ ПиЛа"),
-        MemoCard(keyNumber: "57", keyWord: "БуСы", keyLetters: "БП СЗ", fileName: "57 БП СЗ БуСы"),
+        MemoCard(keyNumber: "57", keyWord: "БуСы", keyLetters: "БП СЗ", fileName: "57 БП ЗС БуСы"),
         MemoCard(keyNumber: "58", keyWord: "ПиВо", keyLetters: "БП ВФ", fileName: "58 БП ВФ ПиВо"),
         MemoCard(keyNumber: "59", keyWord: "ПеРо", keyLetters: "БП РЦ", fileName: "59 БП РЦ ПеРо"),
         MemoCard(keyNumber: "60", keyWord: "ШиНа", keyLetters: "ШЛ НМ", fileName: "60 ШЛ НМ ШиНа"),
