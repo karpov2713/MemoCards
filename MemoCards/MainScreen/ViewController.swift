@@ -73,6 +73,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func resetButton(_ sender: UIButton) {
+        
     }
 
     @IBAction func firstNumbeInputTextField(_ sender: UITextField) {

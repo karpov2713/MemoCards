@@ -124,6 +124,11 @@ class MemoCardsViewModel: MemoCardsProtocol {
         currentGame = newGame
     }
 
+//    func numberOrImageLayer() {
+//        var newGame =
+//
+//    }
+
     func selectImage() -> String {
 
         let imageName: String = selectedImage.fileName
