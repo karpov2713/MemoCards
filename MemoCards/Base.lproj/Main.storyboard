@@ -116,15 +116,13 @@
                                     <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YnD-dL-Mji"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfa-xL-YDt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfa-xL-YDt">
                                 <rect key="frame" x="16" y="597" width="60" height="50"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Bcx-Sh-3ok"/>
                                     <constraint firstAttribute="height" constant="50" id="me4-IA-0ec"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Direct."/>
                                 <connections>
                                     <action selector="directionChangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sos-Yc-EXN"/>
                                 </connections>

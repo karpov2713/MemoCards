@@ -30,7 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let currentParameterList: ParameterList = viewModel.getParameters()
-        ditectionButton.setTitle(currentParameterList.direction.rawValue, for: .normal)
+        ditectionButton.setTitleColor(UIColor.clear, for: .normal)
+        ditectionButton.setImage(UIImage(named: currentParameterList.direction.directionImage), for: .normal)
         firstNumbeTextField.text = "\(currentParameterList.firstNumber)"
         endNumbeTextField.text = "\(currentParameterList.finishNumber)"
         // Do any additional setup after loading the view, typically from a nib.
@@ -51,6 +52,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func oneCardBackButton(_ sender: UIButton) {
+        let imageView = viewModel.selectImage()
+        textLabel.text = ""
+        imageMain.image = UIImage(named: imageView)
+        keyNumberLabel.isHidden = true
     }
 
     @IBAction func helpCodeButton(_ sender: UIButton) {
@@ -59,6 +64,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func directionChangeButton(_ sender: UIButton) {
+        viewModel.changeDirection()
+        let currentParameterList: ParameterList = viewModel.getParameters()
+        ditectionButton.setImage(UIImage(named: currentParameterList.direction.directionImage), for: .normal)
+        firstNumbeTextField.text = "\(currentParameterList.firstNumber)"
+        endNumbeTextField.text = "\(currentParameterList.finishNumber)"
 
     }
 

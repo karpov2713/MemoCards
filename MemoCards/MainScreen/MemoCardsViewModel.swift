@@ -12,6 +12,7 @@ protocol MemoCardsProtocol {
     var selectedImage: MemoCard { get set }
     func selectImage() -> String
     func getParameters() -> ParameterList
+    func changeDirection()
 }
 
 
@@ -22,6 +23,7 @@ class MemoCardsViewModel: MemoCardsProtocol {
 
     //Структура основной игры: направление, первый и последний номер карточки.
     let mainGame: ParameterList!
+    var currentGame: ParameterList!
 
     var selectedImage: MemoCard {
         get {
@@ -102,10 +104,24 @@ class MemoCardsViewModel: MemoCardsProtocol {
     init() {
 
         mainGame = ParameterList(direction: Directions.forward, firstNumber: 0, finishNumber: memoCards.count - 1)
+        currentGame = mainGame
     }
 
     func getParameters() -> ParameterList {
-        return mainGame
+        return currentGame
+    }
+
+    func changeDirection() {
+        var newGame = currentGame
+        if newGame?.direction == .forward {
+            newGame?.direction = .backward
+        } else if newGame?.direction == .backward {
+            newGame?.direction = .random
+        } else {
+            newGame?.direction = .forward
+        }
+
+        currentGame = newGame
     }
 
     func selectImage() -> String {

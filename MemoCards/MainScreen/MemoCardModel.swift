@@ -26,6 +26,13 @@ enum Directions: String {
     case forward = "Forward"
     case backward = "Back"
     case random = "Random"
+    var directionImage: String {
+        switch self  {
+        case .forward: return "rightBigBlueArrow"
+        case .backward: return "leftBigBlueArrow"
+        case .random: return "randomGreenAndRed"
+        }
+    }
 }
 
 struct ParameterList {
