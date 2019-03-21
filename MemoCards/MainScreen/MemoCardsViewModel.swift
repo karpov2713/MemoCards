@@ -103,7 +103,7 @@ class MemoCardsViewModel: MemoCardsProtocol {
 
     init() {
 
-        mainGame = ParameterList(direction: Directions.forward, firstNumber: 0, finishNumber: memoCards.count - 1)
+        mainGame = ParameterList(direction: Directions.forward,firstNumber: 0, finishNumber: memoCards.count - 1)
         currentGame = mainGame
     }
 

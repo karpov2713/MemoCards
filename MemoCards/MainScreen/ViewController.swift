@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var numberHelpLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var showNumberButton: UIButton!
+    @IBOutlet weak var showPuctureButton: UIButton!
     @IBOutlet weak var imageMain: UIImageView!
     @IBOutlet weak var keyNumberLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -34,21 +35,30 @@ class ViewController: UIViewController {
         ditectionButton.setImage(UIImage(named: currentParameterList.direction.directionImage), for: .normal)
         firstNumbeTextField.text = "\(currentParameterList.firstNumber)"
         endNumbeTextField.text = "\(currentParameterList.finishNumber)"
+        textLabel.isHidden = true
+        numberHelpLabel.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     @IBAction func nextButtonAction(_ sender: UIButton) {
 
         let imageView = viewModel.selectImage()
-        textLabel.text = ""
-        imageMain.image = UIImage(named: imageView)
-        keyNumberLabel.isHidden = true
+        keyNumberLabel.isHidden = false
+        keyNumberLabel.text = viewModel.selectedImage.keyNumber
+        imageMain.isHidden = true
+        numberHelpLabel.isHidden = true
+        textLabel.isHidden = true
 
     }
 
-    @IBAction func showNumberButtonAction(_ sender: UIButton) {
-        keyNumberLabel.isHidden = false
-        keyNumberLabel.text = viewModel.selectedImage.keyNumber
+    @IBAction func showPuctureButtonAction(_ sender: UIButton) {
+        let imageView = viewModel.selectedImage
+        numberHelpLabel.text = imageView.keyNumber
+        imageMain.image = UIImage(named: imageView.fileName)
+        keyNumberLabel.isHidden = true
+        imageMain.isHidden = false
+        numberHelpLabel.isHidden = false
+
     }
 
     @IBAction func oneCardBackButton(_ sender: UIButton) {
@@ -59,6 +69,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func helpCodeButton(_ sender: UIButton) {
+        textLabel.isHidden = false
         textLabel.text = viewModel.selectedImage.keyLetters
 
     }
