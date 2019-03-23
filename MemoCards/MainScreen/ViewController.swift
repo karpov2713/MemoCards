@@ -41,8 +41,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func nextButtonAction(_ sender: UIButton) {
-
-        let imageView = viewModel.selectImage()
+        viewModel.updateImage()
         keyNumberLabel.isHidden = false
         keyNumberLabel.text = viewModel.selectedImage.keyNumber
         imageMain.isHidden = true
@@ -54,18 +53,22 @@ class ViewController: UIViewController {
     @IBAction func showPuctureButtonAction(_ sender: UIButton) {
         let imageView = viewModel.selectedImage
         numberHelpLabel.text = imageView.keyNumber
+        textLabel.text = imageView.keyWord
         imageMain.image = UIImage(named: imageView.fileName)
         keyNumberLabel.isHidden = true
         imageMain.isHidden = false
         numberHelpLabel.isHidden = false
+        textLabel.isHidden = false
 
     }
 
     @IBAction func oneCardBackButton(_ sender: UIButton) {
-        let imageView = viewModel.selectImage()
-        textLabel.text = ""
-        imageMain.image = UIImage(named: imageView)
-        keyNumberLabel.isHidden = true
+        viewModel.backOneImage()
+        keyNumberLabel.isHidden = false
+        keyNumberLabel.text = viewModel.selectedImage.keyNumber
+        imageMain.isHidden = true
+        numberHelpLabel.isHidden = true
+        textLabel.isHidden = true
     }
 
     @IBAction func helpCodeButton(_ sender: UIButton) {
@@ -84,7 +87,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func resetButton(_ sender: UIButton) {
-        
+        let firstUsedNumber: String = firstNumbeTextField.text ?? ""
+        let endUsedNumber: String = endNumbeTextField.text ?? ""
+        viewModel.changeFirstAndFinishNumbers(firstNumber: firstUsedNumber, endNumber: endUsedNumber)
+        keyNumberLabel.isHidden = false
+        keyNumberLabel.text = viewModel.selectedImage.keyNumber
+        imageMain.isHidden = true
+        numberHelpLabel.isHidden = true
+        textLabel.isHidden = true
     }
 
     @IBAction func firstNumbeInputTextField(_ sender: UITextField) {

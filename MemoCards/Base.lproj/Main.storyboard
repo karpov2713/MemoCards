@@ -34,7 +34,7 @@
                                     <constraint firstAttribute="width" constant="150" id="pmk-R7-nk0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-Ac-DdW">
@@ -111,7 +111,7 @@
                                     <constraint firstAttribute="width" constant="60" id="SdU-sY-6iK"/>
                                     <constraint firstAttribute="height" constant="50" id="WzV-AQ-OrF"/>
                                 </constraints>
-                                <state key="normal" title="Side"/>
+                                <state key="normal" title="Set"/>
                                 <connections>
                                     <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YnD-dL-Mji"/>
                                 </connections>

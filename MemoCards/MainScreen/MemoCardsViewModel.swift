@@ -10,9 +10,11 @@ import Foundation
 
 protocol MemoCardsProtocol {
     var selectedImage: MemoCard { get set }
-    func selectImage() -> String
+    func updateImage()
     func getParameters() -> ParameterList
     func changeDirection()
+    func backOneImage()
+    func changeFirstAndFinishNumbers(firstNumber: String, endNumber: String)
 }
 
 
@@ -35,6 +37,7 @@ class MemoCardsViewModel: MemoCardsProtocol {
             }
         }
     }
+    var priviousSelectedImage: MemoCard?
     
     let memoCards: [MemoCard] = [
         MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок"),
@@ -43,7 +46,7 @@ class MemoCardsViewModel: MemoCardsProtocol {
         MemoCard(keyNumber: "03", keyWord: "уХо", keyLetters: "КХ", fileName: "03 КХ уХо"),
         MemoCard(keyNumber: "04", keyWord: "Чай", keyLetters: "ЧШ", fileName: "04 ЧШ Чай"),
         MemoCard(keyNumber: "05", keyWord: "оБои", keyLetters: "БП", fileName: "05 БП оБои"),
-        MemoCard(keyNumber: "06", keyWord: "юЛф", keyLetters: "ШЛ", fileName: "06 ШЛ юЛа"),
+        MemoCard(keyNumber: "06", keyWord: "юЛа", keyLetters: "ШЛ", fileName: "06 ШЛ юЛа"),
         MemoCard(keyNumber: "07", keyWord: "оСа", keyLetters: "СЗ", fileName: "07 ЗС оСа"),
         MemoCard(keyNumber: "08", keyWord: "иВа", keyLetters: "ВФ", fileName: "08 ВФ иВа"),
         MemoCard(keyNumber: "09", keyWord: "яйЦо", keyLetters: "РЦ", fileName: "09 РЦ яйЦо"),
@@ -71,14 +74,14 @@ class MemoCardsViewModel: MemoCardsProtocol {
         MemoCard(keyNumber: "31", keyWord: "КоЖа", keyLetters: "КХ ГЖ", fileName: "31 КХ ГЖ КоЖа"),
         MemoCard(keyNumber: "32", keyWord: "КиТ", keyLetters: "КХ ДТ", fileName: "32 КХ ДТ КиТ"),
         MemoCard(keyNumber: "33", keyWord: "КеКс", keyLetters: "КХ КХ", fileName: "33 КХ КХ КеКс"),
-        MemoCard(keyNumber: "34", keyWord: "КоЧат", keyLetters: "КХ ЧЩ", fileName: "34 КХ ЧЩ КоЧан"),
+        MemoCard(keyNumber: "34", keyWord: "КоЧан", keyLetters: "КХ ЧЩ", fileName: "34 КХ ЧЩ КоЧан"),
         MemoCard(keyNumber: "35", keyWord: "КуБ", keyLetters: "КХ БП", fileName: "35 КХ ПБ КуБ"),
         MemoCard(keyNumber: "36", keyWord: "КЛей", keyLetters: "КХ ШЛ", fileName: "36 КХ ШЛ КЛей"),
-        MemoCard(keyNumber: "37", keyWord: "КоСф", keyLetters: "КХ СЗ", fileName: "37 КХ СЗ КоСа"),
+        MemoCard(keyNumber: "37", keyWord: "КоСа", keyLetters: "КХ СЗ", fileName: "37 КХ СЗ КоСа"),
         MemoCard(keyNumber: "38", keyWord: "ХВоя", keyLetters: "КХ ВФ", fileName: "38 КХ ВФ ХВоя"),
         MemoCard(keyNumber: "39", keyWord: "яКоРь", keyLetters: "КХ РЦ", fileName: "39 КХ РЦ яКоРь"),
         MemoCard(keyNumber: "40", keyWord: "ЧайНик", keyLetters: "ЧЩ НМ", fileName: "40 ЧЩ НМ ЧайНик"),
-        MemoCard(keyNumber: "41", keyWord: "ЧуГуток", keyLetters: "ЧЩ ГЖ", fileName: "41 ЧЩ ГЖ ЧуГунок"),
+        MemoCard(keyNumber: "41", keyWord: "ЧуГунок", keyLetters: "ЧЩ ГЖ", fileName: "41 ЧЩ ГЖ ЧуГунок"),
         MemoCard(keyNumber: "42", keyWord: "ЩиТ", keyLetters: "ЧЩ ДТ", fileName: "42 ЧЩ ДТ ЩиТ"),
         MemoCard(keyNumber: "43", keyWord: "оЧКи", keyLetters: "ЧЩ КХ", fileName: "43 ЧЩ КХ оЧКи"),
         MemoCard(keyNumber: "44", keyWord: "ЧуЧело", keyLetters: "ЧЩ ЧЩ", fileName: "44 ЧЩ ЧЩ ЧуЧело"),
@@ -124,26 +127,73 @@ class MemoCardsViewModel: MemoCardsProtocol {
         currentGame = newGame
     }
 
-//    func numberOrImageLayer() {
-//        var newGame =
-//
-//    }
+    func changeFirstAndFinishNumbers(firstNumber: String, endNumber: String) {
+        var newGame = currentGame
+        newGame?.firstNumber = Int(firstNumber) ?? 0
+        newGame?.finishNumber = Int(endNumber) ?? memoCards.count - 1
+        currentGame = newGame
+        selectedImage = memoCards[currentGame.firstNumber]
+    }
 
-    func selectImage() -> String {
+    func backOneImage() {
+        if priviousSelectedImage != nil {
+        selectedImage = priviousSelectedImage!
+        priviousSelectedImage = nil
+        }
+    }
 
+    func updateImage() {
+        priviousSelectedImage = selectedImage
         let imageName: String = selectedImage.fileName
 
-        self.selectedImage = self.memoCards.randomElement() ?? MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок")
+//        self.selectedImage = self.memoCards.randomElement() ?? MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок")
 
         var selectedPicture = self.selectedImage.fileName
 
+        let usedParameters = getParameters()
 
         while selectedPicture == imageName {
-            self.selectedImage = self.memoCards.randomElement() ?? MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок")
+            switch usedParameters.direction {
+            case Directions.forward:
+                var currentKeyNumber = 0
+                for i in 0...memoCards.count - 1 {
+                    if memoCards[i].keyNumber == selectedImage.keyNumber {
+                        currentKeyNumber = i
+                        break
+                    }
+                }
+                if currentKeyNumber + 1 >= usedParameters.finishNumber {
+                    currentKeyNumber = usedParameters.firstNumber - 1
+                }
+                if currentKeyNumber + 1 <= usedParameters.firstNumber {
+                    currentKeyNumber = usedParameters.firstNumber - 1
+                }
+                self.selectedImage = self.memoCards[currentKeyNumber + 1]
+
+            case Directions.backward:
+                var currentKeyNumber = 0
+                for i in 0...memoCards.count - 1 {
+                    if memoCards[i].keyNumber == selectedImage.keyNumber {
+                        currentKeyNumber = i
+                        break
+                    }
+                }
+                if currentKeyNumber - 1 < usedParameters.firstNumber {
+                    currentKeyNumber = usedParameters.finishNumber + 1
+                }
+                if currentKeyNumber - 1  > usedParameters.finishNumber {
+                    currentKeyNumber = usedParameters.finishNumber + 1
+                }
+                self.selectedImage = self.memoCards[currentKeyNumber - 1]
+
+            case Directions.random:
+
+                self.selectedImage = self.memoCards.randomElement() ?? MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок")
+            }
             selectedPicture = self.selectedImage.fileName
 
         }
-        return selectedPicture
+
         //
         // Возвращает картинку выбранной карточки
     }
