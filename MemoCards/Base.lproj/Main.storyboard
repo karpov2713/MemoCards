@@ -136,7 +136,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="endNumberInputTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="qxS-AV-FaK"/>
                                 </connections>
@@ -149,7 +149,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="firstNumbeInputTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="YcO-cC-Crr"/>
                                 </connections>

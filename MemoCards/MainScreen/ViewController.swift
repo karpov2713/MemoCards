@@ -37,7 +37,12 @@ class ViewController: UIViewController {
         endNumbeTextField.text = "\(currentParameterList.finishNumber)"
         textLabel.isHidden = true
         numberHelpLabel.isHidden = true
+        let keyboardDismiss: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(keyboardDismiss)
+        keyNumberLabel.text = viewModel.selectedImage.keyNumber
         // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     @IBAction func nextButtonAction(_ sender: UIButton) {
@@ -90,6 +95,8 @@ class ViewController: UIViewController {
         let firstUsedNumber: String = firstNumbeTextField.text ?? ""
         let endUsedNumber: String = endNumbeTextField.text ?? ""
         viewModel.changeFirstAndFinishNumbers(firstNumber: firstUsedNumber, endNumber: endUsedNumber)
+        firstNumbeTextField.text = String(viewModel.getParameters().firstNumber)
+        endNumbeTextField.text = String(viewModel.getParameters().finishNumber)
         keyNumberLabel.isHidden = false
         keyNumberLabel.text = viewModel.selectedImage.keyNumber
         imageMain.isHidden = true
@@ -105,6 +112,20 @@ class ViewController: UIViewController {
 
     @IBAction func saveNaviBarButton(_ sender: UIBarButtonItem) {
 //        var parameterList = [direction: String, firstNumber: Int, finishNumber: Int]
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
 }
