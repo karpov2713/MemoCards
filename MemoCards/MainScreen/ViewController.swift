@@ -102,6 +102,7 @@ class ViewController: UIViewController {
         imageMain.isHidden = true
         numberHelpLabel.isHidden = true
         textLabel.isHidden = true
+        dismissKeyboard()
     }
 
     @IBAction func firstNumbeInputTextField(_ sender: UITextField) {
