@@ -36,6 +36,7 @@ enum Directions: String {
 }
 
 struct ParameterList {
+    var nameOfSet: String
     var direction: Directions
     var firstNumber: Int
     var finishNumber: Int

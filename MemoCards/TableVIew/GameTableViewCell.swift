@@ -13,7 +13,7 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var indexCellLabel: UILabel!
     @IBOutlet weak var nameOfGameCellLabel: UILabel!
     @IBOutlet weak var firstNumberCellLabel: UILabel!
-    @IBOutlet weak var directionCellLabel: UILabel!
+    @IBOutlet weak var directionImage: UIImageView!
     @IBOutlet weak var endNumberCellLabel: UILabel!
 
     override func awakeFromNib() {

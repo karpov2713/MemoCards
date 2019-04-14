@@ -39,7 +39,7 @@ class MemoCardsViewModel: MemoCardsProtocol {
     }
     var priviousSelectedImage: MemoCard?
     
-    let memoCards: [MemoCard] = [
+    static let memoCards: [MemoCard] = [
         MemoCard(keyNumber: "00", keyWord: "НоМерок", keyLetters: "НМ", fileName: "00 НМ НоМерок"),
         MemoCard(keyNumber: "01", keyWord: "ёЖ", keyLetters: "ГЖ", fileName: "01 ГЖ еЖ"),
         MemoCard(keyNumber: "02", keyWord: "яД", keyLetters: "ДТ", fileName: "02 ДТ яД"),
@@ -105,12 +105,12 @@ class MemoCardsViewModel: MemoCardsProtocol {
         MemoCard(keyNumber: "62", keyWord: "ЛаДья", keyLetters: "ШЛ ДТ", fileName: "62 ШЛ ДТ ЛаДья")]
 
     init() {
-        mainGame = ParameterList(direction: Directions.forward,firstNumber: 0, finishNumber: memoCards.count - 1)
+        mainGame = ParameterList(nameOfSet: "Все цифры",direction: Directions.forward,firstNumber: 0, finishNumber: MemoCardsViewModel.memoCards.count - 1)
         currentGame = mainGame
 
         if currentGame.direction == Directions.forward || currentGame.direction == Directions.random {
-            selectedImage = memoCards[currentGame.firstNumber]
-        } else { selectedImage = memoCards[currentGame.finishNumber] }
+            selectedImage = MemoCardsViewModel.memoCards[currentGame.firstNumber]
+        } else { selectedImage = MemoCardsViewModel.memoCards[currentGame.finishNumber] }
     }
 
     func getParameters() -> ParameterList {
@@ -133,10 +133,10 @@ class MemoCardsViewModel: MemoCardsProtocol {
     func changeFirstAndFinishNumbers(firstNumber: String, endNumber: String) {
         var newGame = currentGame
         var firstNumberVar = Int(firstNumber) ?? 0
-        var endNumberVar = Int(endNumber) ?? memoCards.count - 1
+        var endNumberVar = Int(endNumber) ?? MemoCardsViewModel.memoCards.count - 1
 
-        if endNumberVar > memoCards.count - 1 || endNumberVar < 0 {
-            endNumberVar = memoCards.count - 1
+        if endNumberVar > MemoCardsViewModel.memoCards.count - 1 || endNumberVar < 0 {
+            endNumberVar = MemoCardsViewModel.memoCards.count - 1
         }
 
         if firstNumberVar > endNumberVar || firstNumberVar < 0 {
@@ -148,9 +148,9 @@ class MemoCardsViewModel: MemoCardsProtocol {
         currentGame = newGame
 
         if self.getParameters().direction == Directions.forward || self.getParameters().direction == Directions.random {
-            selectedImage = memoCards[currentGame.firstNumber]
+            selectedImage = MemoCardsViewModel.memoCards[currentGame.firstNumber]
         } else {
-            selectedImage = memoCards[currentGame.finishNumber]
+            selectedImage = MemoCardsViewModel.memoCards[currentGame.finishNumber]
         }
 
     }
@@ -176,8 +176,8 @@ class MemoCardsViewModel: MemoCardsProtocol {
             switch usedParameters.direction {
             case Directions.forward:
                 var currentKeyNumber = 0
-                for i in 0...memoCards.count - 1 {
-                    if memoCards[i].keyNumber == selectedImage.keyNumber {
+                for i in 0...MemoCardsViewModel.memoCards.count - 1 {
+                    if MemoCardsViewModel.memoCards[i].keyNumber == selectedImage.keyNumber {
                         currentKeyNumber = i
                         break
                     }
@@ -188,12 +188,12 @@ class MemoCardsViewModel: MemoCardsProtocol {
                 if currentKeyNumber + 1 <= usedParameters.firstNumber {
                     currentKeyNumber = usedParameters.firstNumber - 1
                 }
-                self.selectedImage = self.memoCards[currentKeyNumber + 1]
+                self.selectedImage = MemoCardsViewModel.memoCards[currentKeyNumber + 1]
 
             case Directions.backward:
                 var currentKeyNumber = 0
-                for i in 0...memoCards.count - 1 {
-                    if memoCards[i].keyNumber == selectedImage.keyNumber {
+                for i in 0...MemoCardsViewModel.memoCards.count - 1 {
+                    if MemoCardsViewModel.memoCards[i].keyNumber == selectedImage.keyNumber {
                         currentKeyNumber = i
                         break
                     }
@@ -204,12 +204,12 @@ class MemoCardsViewModel: MemoCardsProtocol {
                 if currentKeyNumber - 1  > usedParameters.finishNumber {
                     currentKeyNumber = usedParameters.finishNumber + 1
                 }
-                self.selectedImage = self.memoCards[currentKeyNumber - 1]
+                self.selectedImage = MemoCardsViewModel.memoCards[currentKeyNumber - 1]
 
             case Directions.random:
 
-                var randomIndex = Int.random(in: usedParameters.firstNumber...usedParameters.finishNumber)
-                self.selectedImage = self.memoCards[randomIndex]
+                let randomIndex = Int.random(in: usedParameters.firstNumber...usedParameters.finishNumber)
+                self.selectedImage = MemoCardsViewModel.memoCards[randomIndex]
             }
             selectedPicture = self.selectedImage.fileName
 

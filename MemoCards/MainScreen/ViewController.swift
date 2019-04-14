@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let currentParameterList: ParameterList = viewModel.getParameters()
         ditectionButton.setTitleColor(UIColor.clear, for: .normal)
         ditectionButton.setImage(UIImage(named: currentParameterList.direction.directionImage), for: .normal)
