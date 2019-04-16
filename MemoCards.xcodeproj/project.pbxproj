@@ -13,6 +13,7 @@
 		7003D8242214904500713A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7003D8232214904500713A82 /* Assets.xcassets */; };
 		7003D8272214904500713A82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7003D8252214904500713A82 /* LaunchScreen.storyboard */; };
 		700872B92232ED1B00AA6D83 /* MemoCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700872B82232ED1B00AA6D83 /* MemoCardsViewModel.swift */; };
+		70F570042266532D0074658B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F570032266532D0074658B /* AppData.swift */; };
 		70F65A42222AFF96007CA3C0 /* MemoCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F65A41222AFF96007CA3C0 /* MemoCardModel.swift */; };
 		70F67D202252961300BEF9AD /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F67D1F2252961300BEF9AD /* TableViewController.swift */; };
 		70F67D2222529D3800BEF9AD /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F67D2122529D3800BEF9AD /* GameTableViewCell.swift */; };
@@ -27,6 +28,7 @@
 		7003D8262214904500713A82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7003D8282214904500713A82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		700872B82232ED1B00AA6D83 /* MemoCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoCardsViewModel.swift; path = MemoCards/MainScreen/MemoCardsViewModel.swift; sourceTree = SOURCE_ROOT; };
+		70F570032266532D0074658B /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = SOURCE_ROOT; };
 		70F65A41222AFF96007CA3C0 /* MemoCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoCardModel.swift; path = MemoCards/MainScreen/MemoCardModel.swift; sourceTree = SOURCE_ROOT; };
 		70F67D1F2252961300BEF9AD /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		70F67D2122529D3800BEF9AD /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				7003D8232214904500713A82 /* Assets.xcassets */,
 				7003D8252214904500713A82 /* LaunchScreen.storyboard */,
 				7003D8282214904500713A82 /* Info.plist */,
+				70F570032266532D0074658B /* AppData.swift */,
 			);
 			path = MemoCards;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				70F67D202252961300BEF9AD /* TableViewController.swift in Sources */,
 				7003D81D2214904400713A82 /* AppDelegate.swift in Sources */,
 				70F67D2222529D3800BEF9AD /* GameTableViewCell.swift in Sources */,
+				70F570042266532D0074658B /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

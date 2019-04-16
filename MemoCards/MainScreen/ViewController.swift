@@ -102,6 +102,7 @@ class ViewController: UIViewController {
         numberHelpLabel.isHidden = true
         textLabel.isHidden = true
         dismissKeyboard()
+        AppData.userLastSet = viewModel.getParameters()
     }
 
     @IBAction func firstNumbeInputTextField(_ sender: UITextField) {
@@ -111,7 +112,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func saveNaviBarButton(_ sender: UIBarButtonItem) {
-//        var parameterList = [direction: String, firstNumber: Int, finishNumber: Int]
+        AppData.userSet.append(viewModel.getParameters())
     }
 
     @objc func dismissKeyboard() {

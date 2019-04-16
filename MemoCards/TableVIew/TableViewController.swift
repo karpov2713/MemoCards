@@ -12,7 +12,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
 
-    var data: [ParameterList] = []
     var staticData: [ParameterList] = []
 
     override func viewDidLoad() {
@@ -22,18 +21,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let maxGameParameters = ParameterList(nameOfSet: "Все цифры", direction: .forward, firstNumber: 0, finishNumber: MemoCardsViewModel.memoCards.count-1)
         staticData.append(maxGameParameters)
 
-        let lastSetGameParameters = ParameterList(nameOfSet: "Последний набор",direction: .random, firstNumber: 5, finishNumber: 35)
-        staticData.append(lastSetGameParameters)
-
-        let firstGameParameters = ParameterList(nameOfSet: "",direction: .backward, firstNumber: 10, finishNumber: 20)
-        let secondGameParameters = ParameterList(nameOfSet: "",direction: .random, firstNumber: 21, finishNumber: 40)
-        data.append(firstGameParameters)
-        data.append(secondGameParameters)
-
-
-
-//        data = ["7", "8", "9", "10", "7", "8", "9", "10"]
-
+        var lastUsersGame  = AppData.userLastSet
+        if lastUsersGame != nil {
+            lastUsersGame?.nameOfSet = "Последняя игра"
+            staticData.append(lastUsersGame!)
+        }
     }
 
     //Data source
@@ -43,7 +35,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if section == 0 {
             return staticData.count
         } else {
-            return data.count
+            return AppData.userSet.count
         }
     }
 
@@ -58,7 +50,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         } else {
 
-            cellData = data[indexPath.row]
+            cellData = AppData.userSet[indexPath.row]
 
         }
 
