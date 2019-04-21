@@ -91,6 +91,31 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         print(indexPath.row)
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let deleteAlert = UIAlertController.init(title: "Удаление игры!", message: "Удалить игру?", preferredStyle: .alert)
+            deleteAlert.addAction(.init(title: "Да", style: .destructive, handler: { (action) in
+
+                if indexPath.section == 1 {
+                    AppData.userSet.remove(at: indexPath.row)
+                    tableView.reloadData()
+                }
+
+            }))
+
+            deleteAlert.addAction(.init(title: "Отменить", style: .cancel, handler: nil))
+            present(deleteAlert, animated: false, completion: nil)
+        }
+    }
+
     /*
     // MARK: - Navigation
 

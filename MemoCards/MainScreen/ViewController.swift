@@ -91,17 +91,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func resetButton(_ sender: UIButton) {
-        let firstUsedNumber: String = firstNumbeTextField.text ?? ""
-        let endUsedNumber: String = endNumbeTextField.text ?? ""
-        viewModel.changeFirstAndFinishNumbers(firstNumber: firstUsedNumber, endNumber: endUsedNumber)
-        firstNumbeTextField.text = String(viewModel.getParameters().firstNumber)
-        endNumbeTextField.text = String(viewModel.getParameters().finishNumber)
-        keyNumberLabel.isHidden = false
-        keyNumberLabel.text = viewModel.selectedImage.keyNumber
-        imageMain.isHidden = true
-        numberHelpLabel.isHidden = true
-        textLabel.isHidden = true
-        dismissKeyboard()
+        saveCurrentParameters()
         AppData.userLastSet = viewModel.getParameters()
     }
 
@@ -112,7 +102,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func saveNaviBarButton(_ sender: UIBarButtonItem) {
-        AppData.userSet.append(viewModel.getParameters())
+
+        let alert = UIAlertController.init(title: "Сохранение параметров", message: "Введите название игры.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Отмена", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(title: "Сохранить", style: .default, handler: { (action) in
+            let textField = alert.textFields![0]
+            let text = textField.text ?? ""
+            self.saveCurrentParameters()
+            var parametersSet: ParameterList = self.viewModel.getParameters()
+            parametersSet.nameOfSet = text
+            AppData.userSet.append(parametersSet)
+        }))
+        alert.addTextField(configurationHandler: nil)
+        present(alert, animated: true, completion: nil)
     }
 
     @objc func dismissKeyboard() {
@@ -128,5 +130,18 @@ class ViewController: UIViewController {
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
     }
-    
+
+    func saveCurrentParameters() {
+        let firstUsedNumber: String = firstNumbeTextField.text ?? ""
+        let endUsedNumber: String = endNumbeTextField.text ?? ""
+        viewModel.changeFirstAndFinishNumbers(firstNumber: firstUsedNumber, endNumber: endUsedNumber)
+        firstNumbeTextField.text = String(viewModel.getParameters().firstNumber)
+        endNumbeTextField.text = String(viewModel.getParameters().finishNumber)
+        keyNumberLabel.isHidden = false
+        keyNumberLabel.text = viewModel.selectedImage.keyNumber
+        imageMain.isHidden = true
+        numberHelpLabel.isHidden = true
+        textLabel.isHidden = true
+        dismissKeyboard()
+    }
 }
